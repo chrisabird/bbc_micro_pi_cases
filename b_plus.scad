@@ -21,8 +21,11 @@ ethernet_port_depth=20;
 ethernet_port_height=14;
 ethernet_port_offset=10.25;
 
-
-
+usb_port_width=15;
+usb_port_depth=20;
+usb_port_height=16;
+usb_port_a_offset=29;
+usb_port_b_offset=47;
 
 
 $fn=30;
@@ -39,6 +42,13 @@ difference() {
 
 	translate([-1, depth-(wall*2)-ethernet_port_offset-(ethernet_port_width/2), (wall*2)+mount_stand_h+pcb_height]) 
 		cube([ethernet_port_depth, ethernet_port_width, ethernet_port_height]); //ethernet port
+
+	translate([-1, depth-(wall*2)-usb_port_a_offset-(usb_port_width/2), (wall*2)+mount_stand_h+pcb_height]) 
+		cube([usb_port_depth, usb_port_width, usb_port_height]); //usb port a
+
+	translate([-1, depth-(wall*2)-usb_port_b_offset-(usb_port_width/2), (wall*2)+mount_stand_h+pcb_height]) 
+		cube([usb_port_depth, usb_port_width, usb_port_height]); //usb port a
+
 }
 
 
