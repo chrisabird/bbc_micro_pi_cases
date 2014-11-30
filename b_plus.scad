@@ -27,6 +27,9 @@ usb_port_height=16;
 usb_port_a_offset=29;
 usb_port_b_offset=47;
 
+audio_port_depth=20;
+audio_port_r=4;
+audio_port_offset=53.5;
 
 $fn=30;
 difference() {
@@ -37,7 +40,7 @@ difference() {
 	translate([wall*2, wall*2, wall*2]) cube([width-(4*wall), depth-(4*wall), height]); // center
 	translate([-1,-1,edge]) cube([width+(wall*2),wall*4, height]); // front
 	translate([0,depth-(3*wall),height-edge]) cube([width,wall*4, height]); // back
-	translate([-1,3*wall, edge]) rotate([side_angle,0,0])cube([width+(wall*2), depth-(wall*2), height]); // left
+	translate([-1,3*wall, edge]) rotate([side_angle,0,0]) cube([width+(wall*2), depth-(wall*2), height]); // left
 
 
 	translate([-1, depth-(wall*2)-ethernet_port_offset-(ethernet_port_width/2), (wall*2)+mount_stand_h+pcb_height]) 
@@ -49,7 +52,12 @@ difference() {
 	translate([-1, depth-(wall*2)-usb_port_b_offset-(usb_port_width/2), (wall*2)+mount_stand_h+pcb_height]) 
 		cube([usb_port_depth, usb_port_width, usb_port_height]); //usb port a
 
+	translate([(wall*2)+(pi_width-audio_port_offset-audio_port_r),depth+(audio_port_depth/2),(wall*2)+mount_stand_h+pcb_height]) rotate([90,0,0]) 
+		cylinder(r=audio_port_r, h=audio_port_depth); // audio port
+
 }
+
+
 
 
 
