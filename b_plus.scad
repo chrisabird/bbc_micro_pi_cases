@@ -6,7 +6,7 @@ wall = 1;
 side_angle=8.28;
 mount_stand_r=2.5;
 mount_stand_h=3;
-mount_rod=1.25;
+mount_rod=1.2;
 
 pi_width=85;
 pi_depth=56;
@@ -50,8 +50,8 @@ module base() {
 			sphere(1);
 		}
 		
-		translate([wall*2, wall*2, wall*2]) 
-			cube([width-(4*wall), depth-(4*wall), height]); // center cutout
+		translate([wall, wall, wall]) 
+			cube([width-(2*wall), depth-(2*wall), height]); // center cutout
 
 		translate([-1,-1,edge]) 
 			cube([width+(wall*2),wall*4, height]); // front cut out	
@@ -61,7 +61,7 @@ module base() {
 
 		translate([-1,3*wall, edge]) 	
 			rotate([side_angle,0,0]) 
-				cube([width+(wall*2), depth-(wall*2), height]); // left cut out
+				cubee([width+(wall*2), depth-(wall*2), height]); // left cut out
 	}
 }
 
@@ -92,7 +92,7 @@ module micro_usb_port() {
 }
 
 module mount(offset_x, offset_y) {
-	translate([(wall*2)+(pi_width-pi_mount_offset-offset_x),depth-(wall*2)-pi_mount_offset-offset_y,wall*2])
+	translate([(wall*2)+(pi_width-pi_mount_offset-offset_x),depth-(wall*2)-pi_mount_offset-offset_y,wall*3])
 		cylinder(r=mount_stand_r,h=mount_stand_h, center=true);
 
 	translate([(wall*2)+(pi_width-pi_mount_offset-offset_x),depth-(wall*2)-pi_mount_offset-offset_y,wall*2+mount_stand_h])
