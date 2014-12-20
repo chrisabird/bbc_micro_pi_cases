@@ -3,6 +3,7 @@
 ## B+
 
 ![B+ Base](https://github.com/chrisabird/bbc_micro_pi_cases/raw/master/base_image.png "B+ Base")
+![B+ Lid](https://github.com/chrisabird/bbc_micro_pi_cases/raw/master/lid_image.png "B+ Lid")
 
 ### Test Settings
  * PLA
